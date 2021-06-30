@@ -29,4 +29,8 @@ Route::resource('post', PostController::class);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
+Route::get('sendMail', function () {
+    \Mail::to('abc@abc.com')->send(new \App\Mail\FirstMail);
+});
+
 require __DIR__.'/auth.php';
